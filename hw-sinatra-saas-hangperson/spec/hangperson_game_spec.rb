@@ -6,7 +6,6 @@ require 'hangperson_game'
 
 
 describe HangpersonGame do
-
   # helper function: make several guesses
   def guess_several_letters(game, letters)
     letters.chars do |letter|
@@ -129,5 +128,4 @@ describe HangpersonGame do
       expect(@game.check_win_or_lose).to eq(:play)
     end
   end
-
 end

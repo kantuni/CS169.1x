@@ -10,7 +10,6 @@
 # - A letter that has already been guessed or is a non-alphabet character
 #   is considered "invalid", i.e. it is not a "valid" guess.
 class HangpersonGame
-
   attr_accessor :word, :guesses, :wrong_guesses
 
   def initialize(word)
@@ -59,5 +58,4 @@ class HangpersonGame
       return http.post(uri, '').body
     end
   end
-
 end
