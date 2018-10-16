@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 
-# Our Web-based version of the popular game "hangman" works as follows:
+# Our version of the popular game "hangman" works as follows:
 # 1. The computer picks a random word.
 # 2. The player guesses letters in order to guess the word.
 # 3. If the player guesses the word before making seven wrong guesses of
