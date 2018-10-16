@@ -2,13 +2,13 @@
 
 
 # Our Web-based version of the popular game "hangman" works as follows:
-# - The computer picks a random word.
-# - The player guesses letters in order to guess the word.
-# - If the player guesses the word before making seven wrong guesses of
-#   letters, they win; otherwise they lose. Guessing the same letter
-#   repeatedly is simply ignored.
-# - A letter that has already been guessed or is a non-alphabet character
-#   is considered "invalid", i.e. it is not a "valid" guess.
+#   1. The computer picks a random word.
+#   2. The player guesses letters in order to guess the word.
+#   3. If the player guesses the word before making seven wrong guesses of
+#      letters, they win; otherwise they lose. Guessing the same letter
+#      repeatedly is simply ignored.
+#   4. A letter that has already been guessed or is a non-alphabet character
+#      is considered "invalid", i.e. it is not a "valid" guess.
 class HangpersonGame
   attr_accessor :word, :guesses, :wrong_guesses
 
