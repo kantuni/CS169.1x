@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 
+require 'uri'
+require 'net/http'
+
 # Our version of the popular game "hangman" works as follows:
 # 1. The computer picks a random word.
 # 2. The player guesses letters in order to guess the word.
@@ -50,9 +53,6 @@ class HangpersonGame
   end
 
   def self.random_word
-    require 'uri'
-    require 'net/http'
-
     uri = URI('http://watchout4snakes.com/wo4snakes/Random/RandomWord')
     Net::HTTP.new('watchout4snakes.com').start do |http|
       return http.post(uri, '').body
