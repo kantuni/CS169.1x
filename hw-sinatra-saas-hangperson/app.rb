@@ -42,9 +42,8 @@ class HangpersonApp < Sinatra::Base
   post '/guess' do
     letter = params[:guess].to_s[0]
     valid = @game.guess(letter)
-    repeated = @game.guesses.include?(letter) ||
-               @game.wrong_guesses.include?(letter)
-    if repeated
+    repeated = (@game.guesses.include? letter) || (@game.wrong_guesses.include? letter)
+    if !valid && repeated
       flash[:message] = 'You have already used that letter.'
     elsif !valid
       flash[:message] = 'Invalid guess.'
@@ -64,7 +63,7 @@ class HangpersonApp < Sinatra::Base
     elsif status == :lose
       redirect '/lose'
     else
-      erb :show # You may change/remove this line
+      erb :show
     end
   end
 
