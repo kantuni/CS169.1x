@@ -1,24 +1,24 @@
 body {
+  border: 8px solid teal;
   font-family: Helvetica, Arial, Geneva, sans-serif;
   padding: 2em;
-  border: 8px solid teal;
 }
 
 span.word {
-  text-transform: uppercase;
-  letter-spacing: 4px;
   color: #0432ff;
-  font-weight: bold;
   font-size: larger;
+  font-weight: bold;
+  letter-spacing: 4px;
   padding-left: 2em;
+  text-transform: uppercase;
 }
 
 span.guesses {
   color: #ff2600;
   font-weight: bold;
   letter-spacing: 4px;
-  text-transform: uppercase;
   padding-left: 1em;
+  text-transform: uppercase;
 }
 
 span.lose {
