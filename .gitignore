@@ -1,5 +1,8 @@
-# macOS
-.DS_Store
+# Tests
+coverage
 
 # IDE
 .idea
+
+# macOS
+.DS_Store
