@@ -1,8 +1,14 @@
 # Tests
 coverage
 
+# Logs
+log
+
 # IDE
 .idea
+
+# Ruby
+.bundle
 
 # macOS
 .DS_Store
