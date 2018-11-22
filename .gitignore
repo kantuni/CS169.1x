@@ -1,14 +1,17 @@
+# Bundler
+.bundle
+
 # Tests
 coverage
 
 # Logs
 log
 
+# Temporary files
+tmp
+
 # IDE
 .idea
-
-# Ruby
-.bundle
 
 # macOS
 .DS_Store
