@@ -1,3 +1,6 @@
+# Default SQLite database
+db/*.sqlite3
+
 # Bundler
 .bundle
 
