@@ -1,17 +1,17 @@
 # Default SQLite database
 db/*.sqlite3
 
-# Bundler
-.bundle
-
-# Tests
-coverage
-
 # Logs
 log
 
 # Temporary files
 tmp
+
+# Bundler
+.bundle
+
+# Tests
+coverage
 
 # IDE
 .idea
