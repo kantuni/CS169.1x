@@ -4,7 +4,7 @@ module MoviesHelper
     count.odd? ? 'odd' : 'even'
   end
 
-  def highlight(column)
+  def hilite(column)
     'hilite' if session[:sort_by] == column
   end
 

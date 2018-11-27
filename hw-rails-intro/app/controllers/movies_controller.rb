@@ -5,13 +5,12 @@ class MoviesController < ApplicationController
   end
 
   def show
-    id = params[:id] # retrieve movie ID from URI route
-    @movie = Movie.find(id) # look up movie by unique ID
-    # will render app/views/movies/show.<extension> by default
+    id = params[:id]
+    @movie = Movie.find(id)
   end
 
   def index
-    @all_ratings = all_ratings
+    @all_ratings = Movie.all_ratings
 
     # Determine if we need a redirect to a RESTful route.
     redirect = false
@@ -61,10 +60,6 @@ class MoviesController < ApplicationController
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
-  end
-
-  def all_ratings
-    Movie.group(:rating).pluck(:rating)
   end
 
 end
