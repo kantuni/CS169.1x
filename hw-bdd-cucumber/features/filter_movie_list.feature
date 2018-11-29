@@ -37,12 +37,12 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   | The Terminator          |
 
   Then I should not see the following movies
-    | title                 |
-    | 2001: A Space Odyssey |
-    | Alladin               |
-    | Chicken Run           |
-    | Chocolat              |
-    | The Help              |
+  | title                 |
+  | 2001: A Space Odyssey |
+  | Alladin               |
+  | Chicken Run           |
+  | Chocolat              |
+  | The Help              |
 
 Scenario: all ratings selected
   Given I check the following ratings: G, PG, PG-13, R
