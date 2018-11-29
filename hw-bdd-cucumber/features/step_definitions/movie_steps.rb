@@ -14,14 +14,10 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   expect(p1).to be <= p2
 end
 
-When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
+When /I (un)?check the following ratings: (.*)/ do |boolean, rating_list|
   ratings = rating_list.split(', ')
   ratings.each do |rating|
-    if uncheck
-      step 'I uncheck "ratings_' + rating + '"'
-    else
-      step 'I check "ratings_' + rating + '"'
-    end
+    step 'I ' + boolean.to_s + 'check "ratings_' + rating + '"'
   end
 end
 
