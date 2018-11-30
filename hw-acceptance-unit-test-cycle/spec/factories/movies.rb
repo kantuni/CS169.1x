@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :movie do |f|
     f.title { 'Star Wars' }
     f.rating { 'PG' }

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Movie do
   it 'has a valid factory' do
-    expect(FactoryBot.create(:movie)).to be_valid
+    expect(FactoryGirl.create(:movie)).to be_valid
   end
 
   it 'returns correct movie ratings' do
@@ -11,9 +11,9 @@ describe Movie do
 
   describe 'show similar movies' do
     before :each do
-      @star_wars = FactoryBot.create(:movie)
-      @ready_player_one = FactoryBot.create(:movie, title: 'Ready Player One', director: 'Steven Spielberg')
-      @the_terminal = FactoryBot.create(:movie, title: 'The Terminal', director: 'Steven Spielberg')
+      @star_wars = FactoryGirl.create(:movie)
+      @ready_player_one = FactoryGirl.create(:movie, title: 'Ready Player One', director: 'Steven Spielberg')
+      @the_terminal = FactoryGirl.create(:movie, title: 'The Terminal', director: 'Steven Spielberg')
     end
 
     it 'finds movies by the same director' do
