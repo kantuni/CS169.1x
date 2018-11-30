@@ -7,7 +7,7 @@
       %th Director
       %th More Info
   %tbody
-    - @similar_movies.each do |movie|
+    - @movies.each do |movie|
       %tr
         %td= movie.title
         %td= movie.rating
