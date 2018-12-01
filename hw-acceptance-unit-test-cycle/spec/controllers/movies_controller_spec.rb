@@ -1,14 +1,7 @@
 require 'rails_helper'
 
 describe MoviesController do
-
   describe 'show all movies' do
-    # it 'populates the array of movies' do
-    #   movie = FactoryGirl.create(:movie)
-    #   get :index
-    #   expect(assigns(:movies)).to eq [movie]
-    # end
-
     it 'renders the :index view' do
       get :index
       expect(response).to render_template :index
@@ -129,7 +122,7 @@ describe MoviesController do
 
   describe 'find movies with same director' do
     before :each do
-      @star_wars = FactoryGirl.create(:movie)
+      @the_shawshank_redemption = FactoryGirl.create(:movie)
       @ready_player_one = FactoryGirl.create(:movie, title: 'Ready Player One', director: 'Steven Spielberg')
       @the_terminal = FactoryGirl.create(:movie, title: 'The Terminal', director: 'Steven Spielberg')
     end
@@ -137,7 +130,7 @@ describe MoviesController do
     context 'when the specified movie has a director' do
       it 'makes similar movies available to the template' do
         get :similar, id: @ready_player_one
-        expect(assigns(:movies)).to eq [@ready_player_one, @the_terminal]
+        expect(assigns(:movies)).to contain_exactly @ready_player_one, @the_terminal
       end
 
       it 'renders the :similar view' do
@@ -160,5 +153,4 @@ describe MoviesController do
       end
     end
   end
-
 end

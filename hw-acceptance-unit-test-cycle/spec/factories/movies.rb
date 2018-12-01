@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :movie do |f|
-    f.title { 'Star Wars' }
-    f.rating { 'PG' }
+    f.title { 'The Shawshank Redemption' }
+    f.rating { 'R' }
     f.description { '' }
-    f.release_date { Date.parse('1977-05-25') }
-    f.director { 'George Lucas' }
+    f.release_date { Date.parse('1994-10-14') }
+    f.director { 'Frank Darabont' }
   end
 end

@@ -11,17 +11,17 @@ describe Movie do
 
   describe 'show similar movies' do
     before :each do
-      @star_wars = FactoryGirl.create(:movie)
+      @the_shawshank_redemption = FactoryGirl.create(:movie)
       @ready_player_one = FactoryGirl.create(:movie, title: 'Ready Player One', director: 'Steven Spielberg')
       @the_terminal = FactoryGirl.create(:movie, title: 'The Terminal', director: 'Steven Spielberg')
     end
 
     it 'finds movies by the same director' do
-      expect(@ready_player_one.similar_movies).to eq [@ready_player_one, @the_terminal]
+      expect(@ready_player_one.similar_movies).to contain_exactly @ready_player_one, @the_terminal
     end
 
     it 'does not find movies by different directors' do
-      expect(@ready_player_one.similar_movies).not_to include @star_wars
+      expect(@ready_player_one.similar_movies).not_to include @the_shawshank_redemption
     end
   end
 end
