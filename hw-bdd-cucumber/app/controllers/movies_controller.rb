@@ -7,10 +7,9 @@ class MoviesController < ApplicationController
 
   def index
     sort = params[:sort] || session[:sort]
-    case sort
-    when 'title'
+    if sort == 'title'
       ordering, @title_header = { :title => :asc }, 'hilite'
-    when 'release_date'
+    elsif sort == 'release_date'
       ordering, @date_header = { :release_date => :asc }, 'hilite'
     end
     
@@ -22,8 +21,7 @@ class MoviesController < ApplicationController
     end
 
     if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]
-      session[:sort] = sort
-      session[:ratings] = @selected_ratings
+      session[:sort], session[:ratings] = sort, @selected_ratings
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
     
