@@ -10,28 +10,20 @@ class MoviesController < ApplicationController
   end
 
   def index
+    sort_by = params[:sort_by] || session[:sort_by]
+    order = { title: :asc } if sort_by == 'title'
+    order = { release_date: :asc } if sort_by == 'release_date'
+
     @all_ratings = Movie.all_ratings
+    @selected_ratings = params[:ratings] || session[:ratings] || @all_ratings.map { |rating| [rating, 1] }.to_h
 
-    # Determine if we need a redirect to a RESTful route.
-    redirect = false
-    if !params.key?(:ratings) && session.key?(:ratings)
-      redirect = true
-      params[:ratings] = session[:ratings]
-    end
-    if !params.key?(:sort_by) && session.key?(:sort_by)
-      redirect = true
-      params[:sort_by] = session[:sort_by]
+    if params[:sort_by] != session[:sort_by] or params[:ratings] != session[:ratings]
+      session[:sort_by] = sort_by
+      session[:ratings] = @selected_ratings
+      redirect_to sort_by: sort_by, ratings: @selected_ratings and return
     end
 
-    session[:ratings] = params[:ratings] if params.key?(:ratings) && params[:ratings].keys.present?
-    session[:sort_by] = params[:sort_by] if params.key? :sort_by
-
-    @movies = Movie.all
-    @movies = @movies.where(rating: session[:ratings].keys) if session.key? :ratings
-    @movies = @movies.order(session[:sort_by]) if session.key? :sort_by
-
-    q = { ratings: params[:ratings], sort_by: params[:sort_by] }
-    redirect_to movies_path + '?' + q.to_query if redirect
+    @movies = Movie.where(rating: @selected_ratings.keys).order(order)
   end
 
   def new
