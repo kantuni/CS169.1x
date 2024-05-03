@@ -77,7 +77,6 @@ end
 # with a leading dollar sign and two decimal places, that is, a price of 20
 # should format as "$20.00" and a price of 33.8 should format as "$33.80".
 class BookInStock
-
   attr_accessor :isbn, :price
 
   def initialize(isbn, price)
@@ -90,5 +89,4 @@ class BookInStock
   def price_as_string
     "$#{format('%.2f', @price)}"
   end
-
 end
